@@ -1,118 +1,229 @@
-jQuery(window).on('load', function() {
-	"use strict";
-    
-    
-    // HIDE PRELOADER
-    $(".preloader").addClass("hide-preloader");   
-    
-    // SHOW/ANIMATE ANIMATION CONTAINER
-    setTimeout(function(){
+/**
+* Template Name: DevFolio - v4.1.0
+* Template URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+(function() {
+  "use strict";
 
-        $("#intro .animation-container").each(function() {
+  /**
+   * Easy selector helper function
+   */
+  const select = (el, all = false) => {
+    el = el.trim()
+    if (all) {
+      return [...document.querySelectorAll(el)]
+    } else {
+      return document.querySelector(el)
+    }
+  }
 
-            var e = $(this);
+  /**
+   * Easy event listener function
+   */
+  const on = (type, el, listener, all = false) => {
+    let selectEl = select(el, all)
+    if (selectEl) {
+      if (all) {
+        selectEl.forEach(e => e.addEventListener(type, listener))
+      } else {
+        selectEl.addEventListener(type, listener)
+      }
+    }
+  }
 
-            setTimeout(function(){
+  /**
+   * Easy on scroll event listener 
+   */
+  const onscroll = (el, listener) => {
+    el.addEventListener('scroll', listener)
+  }
 
-                e.addClass("run-animation");
+  /**
+   * Navbar links active state on scroll
+   */
+  let navbarlinks = select('#navbar .scrollto', true)
+  const navbarlinksActive = () => {
+    let position = window.scrollY + 200
+    navbarlinks.forEach(navbarlink => {
+      if (!navbarlink.hash) return
+      let section = select(navbarlink.hash)
+      if (!section) return
+      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+        navbarlink.classList.add('active')
+      } else {
+        navbarlink.classList.remove('active')
+      }
+    })
+  }
+  window.addEventListener('load', navbarlinksActive)
+  onscroll(document, navbarlinksActive)
 
-            }, e.data("animation-delay") );
+  /**
+   * Scrolls to an element with header offset
+   */
+  const scrollto = (el) => {
+    let header = select('#header')
+    let offset = header.offsetHeight
 
-        });
+    if (!header.classList.contains('header-scrolled')) {
+      offset -= 16
+    }
 
-    }, 700 );
+    let elementPos = select(el).offsetTop
+    window.scrollTo({
+      top: elementPos - offset,
+      behavior: 'smooth'
+    })
+  }
 
-    
-});
+  /**
+   * Toggle .header-scrolled class to #header when page is scrolled
+   */
+  let selectHeader = select('#header')
+  if (selectHeader) {
+    const headerScrolled = () => {
+      if (window.scrollY > 100) {
+        selectHeader.classList.add('header-scrolled')
+      } else {
+        selectHeader.classList.remove('header-scrolled')
+      }
+    }
+    window.addEventListener('load', headerScrolled)
+    onscroll(document, headerScrolled)
+  }
 
+  /**
+   * Back to top button
+   */
+  let backtotop = select('.back-to-top')
+  if (backtotop) {
+    const toggleBacktotop = () => {
+      if (window.scrollY > 100) {
+        backtotop.classList.add('active')
+      } else {
+        backtotop.classList.remove('active')
+      }
+    }
+    window.addEventListener('load', toggleBacktotop)
+    onscroll(document, toggleBacktotop)
+  }
 
-jQuery(document).ready(function($) {
-	"use strict";
-    
-    
-    // SMOOTH SCROLL FOR SAME PAGE LINKS
-    $(document).on('click', 'a.smooth-scroll', function(event) {
-        
-        event.preventDefault();
+  /**
+   * Mobile nav toggle
+   */
+  on('click', '.mobile-nav-toggle', function(e) {
+    select('#navbar').classList.toggle('navbar-mobile')
+    this.classList.toggle('bi-list')
+    this.classList.toggle('bi-x')
+  })
 
-        $('html, body').animate({
-            scrollTop: $( $.attr(this, 'href') ).offset().top - 80
-        }, 500);
-        
+  /**
+   * Mobile nav dropdowns activate
+   */
+  on('click', '.navbar .dropdown > a', function(e) {
+    if (select('#navbar').classList.contains('navbar-mobile')) {
+      e.preventDefault()
+      this.nextElementSibling.classList.toggle('dropdown-active')
+    }
+  }, true)
+
+  /**
+   * Scrool with ofset on links with a class name .scrollto
+   */
+  on('click', '.scrollto', function(e) {
+    if (select(this.hash)) {
+      e.preventDefault()
+
+      let navbar = select('#navbar')
+      if (navbar.classList.contains('navbar-mobile')) {
+        navbar.classList.remove('navbar-mobile')
+        let navbarToggle = select('.mobile-nav-toggle')
+        navbarToggle.classList.toggle('bi-list')
+        navbarToggle.classList.toggle('bi-x')
+      }
+      scrollto(this.hash)
+    }
+  }, true)
+
+  /**
+   * Scroll with ofset on page load with hash links in the url
+   */
+  window.addEventListener('load', () => {
+    if (window.location.hash) {
+      if (select(window.location.hash)) {
+        scrollto(window.location.hash)
+      }
+    }
+  });
+
+  /**
+   * Intro type effect
+   */
+  const typed = select('.typed')
+  if (typed) {
+    let typed_strings = typed.getAttribute('data-typed-items')
+    typed_strings = typed_strings.split(',')
+    new Typed('.typed', {
+      strings: typed_strings,
+      loop: true,
+      typeSpeed: 100,
+      backSpeed: 50,
+      backDelay: 2000
     });
-    
-    
-    // SCROLL REVEAL SETUP
-    window.sr = ScrollReveal();
-    sr.reveal(".scroll-animated", { 
-        duration: 600,
-        delay: 0,
-        origin: "left",
-        rotate: { x: 0, y: 0, z: 0 },
-        opacity: 0,
-        distance: "20vh",
-        viewFactor: 0.4,
-        scale: 1,
+  }
+
+  /**
+   * Initiate portfolio lightbox 
+   */
+  const portfolioLightbox = GLightbox({
+    selector: '.portfolio-lightbox'
+  });
+
+  /**
+   * Testimonials slider
+   */
+  new Swiper('.testimonials-slider', {
+    speed: 600,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    slidesPerView: 'auto',
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    }
+  });
+
+  /**
+   * Portfolio details slider
+   */
+  new Swiper('.portfolio-details-slider', {
+    speed: 400,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    }
+  });
+
+  /**
+   * Preloader
+   */
+  let preloader = select('#preloader');
+  if (preloader) {
+    window.addEventListener('load', () => {
+      preloader.remove()
     });
-    
-    
-    // AJAX CONTACT FORM SUBMIT
-    $("#contact-form").submit(function(e) {
+  }
 
-        e.preventDefault();
-        var postdata = $(this).serialize();
-
-        $.ajax({
-
-            type: "POST",
-            url: "assets/php/contact.php",
-            data: postdata,
-            dataType: "json",
-            success: function(json) {
-
-                $("#contact-form input, #contact-form textarea").removeClass("error");
-
-                setTimeout(function(){
-
-                    if (json.nameMessage !== "") {
-
-                        $("#contact-form-name").addClass("error");
-
-                    }
-
-                    if (json.emailMessage !== "") {
-
-                        $("#contact-form-email").addClass("error");
-
-                    }
-
-                    if (json.messageMessage !== "") {
-
-                        $("#contact-form-message").addClass("error");
-
-                    }
-
-                }, 10);
-
-                if (json.nameMessage === "" && json.emailMessage === "" && json.messageMessage === "") {
-
-                    $("#contact-form.error input, #contact-form.error textarea").removeClass("error");
-                    $('#contact-form').addClass("success");
-                    $('#contact-form textarea, #contact-form input').val("");
-                    
-                    setTimeout(function(){
-                        
-                        $('#contact-form').removeClass("success");
-                        
-                    },4000);
-
-                }
-
-            }
-
-        });
-
-    });
-
-    
-});
+})()
