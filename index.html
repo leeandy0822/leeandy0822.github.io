@@ -183,24 +183,18 @@
           <div class="col-sm-12">
             <div class="box-shadow-full">
               <div class="row">
-                <!-- Left: photo + skills -->
+                <!-- Left: avatar + info + skills -->
                 <div class="col-md-6">
-                  <div class="row">
-                    <div class="col-sm-5 col-md-5">
-                      <div class="about-img">
-                        <img src="assets/img/andy_face.jpg" class="img-fluid rounded b-shadow-a" alt="Chi-An Andy Lee">
-                      </div>
-                    </div>
-                    <div class="col-sm-7 col-md-7">
-                      <div class="about-info">
-                        <p><span class="title-s">Name: </span><span>Chi-An (Andy) Lee</span></p>
-                        <p><span class="title-s">Role: </span><span>Robotics Software Engineer</span></p>
-                        <p><span class="title-s">Degree: </span><span>M.S. Robotics, NYCU</span></p>
-                        <p><span class="title-s">Email: </span><span>leeandy90833@gmail.com</span></p>
-                        <p><span class="title-s">GitHub: </span>
-                          <a href="https://github.com/leeandy0822" target="_blank">leeandy0822</a>
-                        </p>
-                      </div>
+                  <div class="d-flex align-items-center mb-4">
+                    <img src="assets/img/leeandy.jfif" class="rounded-circle" style="width:88px;height:88px;object-fit:cover;flex-shrink:0;box-shadow:0 2px 14px rgba(0,0,0,.15);" alt="Andy Lee">
+                    <div class="about-info ms-3">
+                      <p class="mb-1"><span class="title-s">Name: </span><span>Chi-An (Andy) Lee</span></p>
+                      <p class="mb-1"><span class="title-s">Role: </span><span>Robotics Software Engineer</span></p>
+                      <p class="mb-1"><span class="title-s">Degree: </span><span>M.S. Robotics, NYCU</span></p>
+                      <p class="mb-1"><span class="title-s">Email: </span><span>leeandy90833@gmail.com</span></p>
+                      <p class="mb-0"><span class="title-s">GitHub: </span>
+                        <a href="https://github.com/leeandy0822" target="_blank">leeandy0822</a>
+                      </p>
                     </div>
                   </div>
 
@@ -471,12 +465,40 @@
         </div>
         <div class="row">
 
+          <!-- Master's Thesis — Multi-UAV Cooperative Transport -->
+          <div class="col-md-4">
+            <div class="work-box">
+              <a href="assets/img/thesis_teaser.png" data-gallery="portfolioGallery" class="portfolio-lightbox">
+                <div class="work-img">
+                  <img src="assets/img/thesis_teaser.png" alt="Multi-UAV Cooperative Transport" class="img-fluid">
+                </div>
+              </a>
+              <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h2 class="w-title">Multi-UAV Cooperative Transport</h2>
+                    <div class="w-more">
+                      <span class="w-ctegory">C / RTOS &nbsp;&middot;&nbsp; <em>Master's Thesis</em></span>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="w-like">
+                      <a href="https://www.youtube.com/watch?v=ppvhw4bmeKo" target="_blank" title="Watch Demo">
+                        <span class="bi bi-youtube" style="color:#e00;"></span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- Embedded Communicator -->
           <div class="col-md-4">
             <div class="work-box">
-              <a href="assets/img/pid.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox">
+              <a href="assets/img/embedded_comminicator.png" data-gallery="portfolioGallery" class="portfolio-lightbox">
                 <div class="work-img">
-                  <img src="assets/img/pid.jpg" alt="Embedded Communicator" class="img-fluid">
+                  <img src="assets/img/embedded_comminicator.png" alt="Embedded Communicator" class="img-fluid">
                 </div>
               </a>
               <div class="work-content">
@@ -657,7 +679,25 @@
         </div>
 
         <div class="row g-4">
-          <!-- IEEE Paper -->
+          <!-- Thesis Demo — FIRST -->
+          <div class="col-md-4">
+            <div class="pub-card">
+              <img src="assets/img/thesis_teaser.png" alt="Thesis teaser" class="img-fluid rounded mb-3" style="max-height:160px;width:100%;object-fit:cover;">
+              <div class="pub-icon" style="color:#e00;font-size:1.5rem;margin-bottom:.5rem;"><i class="bi bi-camera-video-fill"></i></div>
+              <h5>Master&rsquo;s Thesis</h5>
+              <p class="text-muted mb-1" style="font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;">Multi-UAV Cooperative Transport &middot; NCRL NYCU</p>
+              <p>
+                Hierarchical adaptive control for multiple UAVs transporting unknown payloads with
+                concurrent learning estimators for real-time mass &amp; CoG estimation.
+                Firmware written in <strong>C / RTOS</strong>.
+              </p>
+              <a href="https://www.youtube.com/watch?v=ppvhw4bmeKo" target="_blank" class="btn btn-danger btn-sm mt-1">
+                <i class="bi bi-youtube me-1"></i>Watch Demo Video
+              </a>
+            </div>
+          </div>
+
+          <!-- IEEE Paper — SECOND -->
           <div class="col-md-4">
             <div class="pub-card">
               <div class="pub-icon"><i class="bi bi-journal-bookmark-fill"></i></div>
@@ -685,22 +725,6 @@
               </p>
             </div>
           </div>
-
-          <!-- Thesis Demo -->
-          <div class="col-md-4">
-            <div class="pub-card">
-              <div class="pub-icon" style="color:#e00;"><i class="bi bi-camera-video-fill"></i></div>
-              <h5>Master&rsquo;s Thesis Demo</h5>
-              <p class="text-muted mb-1" style="font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;">Multi-UAV Cooperative Transport</p>
-              <p>
-                Multiple UAVs transporting an unknown payload using concurrent learning estimators for
-                real-time mass &amp; centre-of-gravity estimation with adaptive control.
-              </p>
-              <a href="https://www.youtube.com/watch?v=ppvhw4bmeKo" target="_blank" class="btn btn-danger btn-sm mt-1">
-                <i class="bi bi-youtube me-1"></i>Watch Demo Video
-              </a>
-            </div>
-          </div>
         </div>
 
         <!-- Embedded YouTube video -->
@@ -720,97 +744,6 @@
                 &amp; Adaptive Control &mdash; NCRL, NYCU
               </small>
             </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(assets/img/overlay-bg.jpg)">
-      <div class="overlay-mf"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="contact-mf">
-              <div id="contact-box" class="box-shadow-full">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="title-box-2">
-                      <h5 class="title-left">Send Me a Message</h5>
-                    </div>
-                    <div>
-                      <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                        <div class="row">
-                          <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                            </div>
-                          </div>
-                          <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                            </div>
-                          </div>
-                          <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-                            </div>
-                          </div>
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-                            </div>
-                          </div>
-                          <div class="col-md-12 text-center my-3">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
-                          </div>
-                          <div class="col-md-12 text-center">
-                            <button type="submit" class="button button-a button-big button-rouded">Send Message</button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="title-box-2 pt-4 pt-md-0">
-                      <h5 class="title-left">Get in Touch</h5>
-                    </div>
-                    <div class="more-info">
-                      <ul class="list-ico">
-                        <li><span class="bi bi-geo-alt"></span> Hsinchu, Taiwan</li>
-                        <li><span class="bi bi-envelope"></span> leeandy90833@gmail.com</li>
-                      </ul>
-                    </div>
-                    <div class="socials">
-                      <ul>
-                        <li>
-                          <a href="https://github.com/leeandy0822" target="_blank" title="GitHub">
-                            <span class="ico-circle"><i class="bi bi-github"></i></span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://ieeexplore.ieee.org/abstract/document/10797683" target="_blank" title="IEEE Publication">
-                            <span class="ico-circle"><i class="bi bi-journal-text"></i></span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://www.youtube.com/watch?v=ppvhw4bmeKo" target="_blank" title="Thesis Demo Video">
-                            <span class="ico-circle"><i class="bi bi-youtube"></i></span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="mailto:leeandy90833@gmail.com" title="Email">
-                            <span class="ico-circle"><i class="bi bi-envelope-fill"></i></span>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
