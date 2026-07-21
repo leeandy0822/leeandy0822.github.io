@@ -163,6 +163,101 @@
     .work-content {
       padding-bottom: .5rem;
     }
+
+    /* ---- hero ---- */
+    .hero-mf {
+      min-height: 88vh;
+      padding-top: 90px;
+      padding-bottom: 50px;
+      background: linear-gradient(135deg, #0d2b52 0%, #0078ff 100%);
+      color: #fff;
+    }
+
+    .hero-avatar {
+      width: 128px;
+      height: 128px;
+      object-fit: cover;
+      border: 3px solid rgba(255, 255, 255, .55);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .25);
+    }
+
+    .hero-eyebrow {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      color: #cfe3ff;
+      margin-bottom: .4rem;
+    }
+
+    .hero-headline {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+      line-height: 1.25;
+    }
+
+    @media (min-width: 768px) {
+      .hero-headline {
+        font-size: 3rem;
+      }
+    }
+
+    .hero-tagline {
+      font-size: 1.05rem;
+      color: #e4edf9;
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .hero-btn-solid {
+      background: #fff;
+      color: #0d2b52;
+      font-weight: 600;
+      border: 1px solid #fff;
+    }
+
+    .hero-btn-solid:hover {
+      background: #e4edf9;
+      color: #0d2b52;
+    }
+
+    /* ---- about: skill groups ---- */
+    .skill-group {
+      margin-bottom: 1.1rem;
+    }
+
+    .skill-group-title {
+      font-size: .78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: #0078ff;
+      margin-bottom: .5rem;
+      display: block;
+    }
+
+    .about-highlights {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.2rem 0;
+    }
+
+    .about-highlights li {
+      position: relative;
+      padding: .3rem 0 .3rem 1.6rem;
+      font-size: .96rem;
+      color: #333;
+      line-height: 1.55;
+    }
+
+    .about-highlights li i {
+      position: absolute;
+      left: 0;
+      top: .45rem;
+      color: #0078ff;
+    }
   </style>
 </head>
 
@@ -189,6 +284,28 @@
 
   <main id="main">
 
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="hero-mf d-flex align-items-center route">
+      <div class="container position-relative">
+        <div class="row justify-content-center">
+          <div class="col-lg-9 text-center">
+            <img src="assets/img/leeandy.jfif" class="rounded-circle hero-avatar mb-4" alt="Andy Lee">
+            <p class="hero-eyebrow">Chi-An &ldquo;Andy&rdquo; Lee</p>
+            <h1 class="hero-headline">Robotics &amp; Embedded Systems Engineer</h1>
+            <p class="hero-tagline">
+              UAV control &amp; sensor fusion &middot; RTOS firmware (FreeRTOS / Zephyr) &middot; ROS 2 systems
+              &middot; Team Lead, 5 engineers &middot; IEEE first-author &middot; US patent co-inventor
+            </p>
+            <div class="hero-btns d-flex flex-wrap justify-content-center gap-2 mt-4">
+              <a href="#experience" class="btn btn-lg scrollto hero-btn-solid">Experience</a>
+              <a href="#projects" class="btn btn-outline-light btn-lg scrollto">Projects</a>
+              <a href="#contact" class="btn btn-outline-light btn-lg scrollto">Contact</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ======= About Section ======= -->
     <section id="about" class="about-mf sect-pt4 route">
       <div class="container">
@@ -196,13 +313,31 @@
           <div class="col-sm-12">
             <div class="box-shadow-full">
               <div class="row">
-                <!-- Left: avatar + info + skills -->
+                <!-- Left: intro text + highlights -->
                 <div class="col-md-6">
-                  <div class="d-flex align-items-center mb-4">
-                    <img src="assets/img/leeandy.jfif" class="rounded-circle"
-                      style="width:88px;height:88px;object-fit:cover;flex-shrink:0;box-shadow:0 2px 14px rgba(0,0,0,.15);"
-                      alt="Andy Lee">
-                    <div class="about-info ms-3">
+                  <div class="about-me">
+                    <div class="title-box-2">
+                      <h5 class="title-left">About Me</h5>
+                    </div>
+                    <p class="lead mb-3">
+                      Robotics R&amp;D engineer focused on <strong>embedded control &amp; firmware</strong> for
+                      autonomous systems &mdash; from real-time flight controller code to production robotics
+                      architecture.
+                    </p>
+                    <ul class="about-highlights">
+                      <li><i class="bi bi-people-fill"></i><strong>Technical Lead</strong> of a 5-person team
+                        delivering a production radar-camera UAV tracking system.</li>
+                      <li><i class="bi bi-cpu"></i>Hands-on <strong>RTOS firmware</strong> development (C, FreeRTOS,
+                        Zephyr) on real flight-controller hardware.</li>
+                      <li><i class="bi bi-sliders"></i>Deep background in <strong>nonlinear control, MPC &amp; sensor
+                          fusion</strong> for multi-UAV / multi-sensor systems.</li>
+                      <li><i class="bi bi-journal-bookmark-fill"></i>IEEE <strong>first-author</strong> published
+                        researcher; co-inventor of a <strong>US-pending patent</strong>.</li>
+                      <li><i class="bi bi-globe2"></i>Exchange scholar at <strong>RWTH Aachen University</strong>,
+                        Germany.</li>
+                    </ul>
+
+                    <div class="about-info">
                       <p class="mb-1"><span class="title-s">Degree: </span><span>M.S. Robotics, NYCU</span></p>
                       <p class="mb-1"><span class="title-s">Email: </span><span>leeandy90833@gmail.com</span></p>
                       <p class="mb-0"><span class="title-s">GitHub: </span>
@@ -210,83 +345,51 @@
                       </p>
                     </div>
                   </div>
-
-                  <div class="mt-3">
-                    <p class="title-s">Core Skills</p>
-                    <ul style="list-style:none;padding:0;margin:0;columns:2;column-gap:1rem;">
-                      <li style="padding:.22rem 0;font-size:.9rem;color:#333;"><i
-                          class="bi bi-check2 text-primary me-1"></i>C / C++</li>
-                      <li style="padding:.22rem 0;font-size:.9rem;color:#333;"><i
-                          class="bi bi-check2 text-primary me-1"></i>Python</li>
-                      <li style="padding:.22rem 0;font-size:.9rem;color:#333;"><i
-                          class="bi bi-check2 text-primary me-1"></i>Go / MATLAB</li>
-                      <li style="padding:.22rem 0;font-size:.9rem;color:#333;"><i
-                          class="bi bi-check2 text-primary me-1"></i>ROS / ROS 2</li>
-                      <li style="padding:.22rem 0;font-size:.9rem;color:#333;"><i
-                          class="bi bi-check2 text-primary me-1"></i>FreeRTOS / Zephyr</li>
-                      <li style="padding:.22rem 0;font-size:.9rem;color:#333;"><i
-                          class="bi bi-check2 text-primary me-1"></i>Embedded Linux</li>
-                      <li style="padding:.22rem 0;font-size:.9rem;color:#333;"><i
-                          class="bi bi-check2 text-primary me-1"></i>MPC / Nonlinear Control</li>
-                      <li style="padding:.22rem 0;font-size:.9rem;color:#333;"><i
-                          class="bi bi-check2 text-primary me-1"></i>Sensor Fusion</li>
-                      <li style="padding:.22rem 0;font-size:.9rem;color:#333;"><i
-                          class="bi bi-check2 text-primary me-1"></i>Docker / CI/CD</li>
-                      <li style="padding:.22rem 0;font-size:.9rem;color:#333;"><i
-                          class="bi bi-check2 text-primary me-1"></i>gRPC / SITL/HITL</li>
-                      <li style="padding:.22rem 0;font-size:.9rem;color:#333;"><i
-                          class="bi bi-check2 text-primary me-1"></i>OpenCV / PyTorch</li>
-                      <li style="padding:.22rem 0;font-size:.9rem;color:#333;"><i
-                          class="bi bi-check2 text-primary me-1"></i>PX4 / Gazebo</li>
-                    </ul>
-                  </div>
-
-                  <div class="mt-3">
-                    <p class="title-s">Technologies</p>
-                    <div class="skills-grid">
-                      <span class="skill-badge">C / C++</span>
-                      <span class="skill-badge">Python</span>
-                      <span class="skill-badge">Go</span>
-                      <span class="skill-badge">MATLAB</span>
-                      <span class="skill-badge">ROS 2</span>
-                      <span class="skill-badge">Gazebo</span>
-                      <span class="skill-badge">Docker</span>
-                      <span class="skill-badge">gRPC</span>
-                      <span class="skill-badge">CI/CD</span>
-                      <span class="skill-badge">SITL / HITL</span>
-                      <span class="skill-badge">OpenCV</span>
-                      <span class="skill-badge">PyTorch</span>
-                      <span class="skill-badge">FreeRTOS</span>
-                      <span class="skill-badge">Zephyr</span>
-                      <span class="skill-badge">Kalman Filter</span>
-                      <span class="skill-badge">MPC</span>
-                      <span class="skill-badge">PX4</span>
-                    </div>
-                  </div>
                 </div>
 
-                <!-- Right: about text + education -->
+                <!-- Right: grouped skills + education -->
                 <div class="col-md-6">
-                  <div class="about-me pt-4 pt-md-0">
+                  <div class="pt-4 pt-md-0">
                     <div class="title-box-2">
-                      <h5 class="title-left">About Me</h5>
+                      <h5 class="title-left">Skills</h5>
                     </div>
-                    <p class="lead">
-                      Robotics R&amp;D Engineer with a Master&rsquo;s in Robotics and hands-on industry experience as
-                      <strong>Technical Lead of a 5-person engineering team</strong>, delivering a production-grade
-                      radar-camera tracking system for UAV defense applications.
-                    </p>
-                    <p class="lead">
-                      My expertise spans the full robotics stack: from theoretical
-                      <strong>nonlinear control, Model Predictive Control (MPC) and sensor fusion</strong>
-                      to robust system architecture (ROS 2, gRPC) and
-                      <strong>RTOS firmware deployment</strong> on FreeRTOS and Zephyr.
-                    </p>
-                    <p class="lead">
-                      IEEE <strong>first-author</strong> published researcher. Co-inventor of a
-                      <strong>US-pending patent</strong> in drone defense technology.
-                      Exchange scholar at <strong>RWTH Aachen University, Germany</strong>.
-                    </p>
+
+                    <div class="skill-group">
+                      <span class="skill-group-title">Embedded &amp; Firmware</span>
+                      <div class="skills-grid">
+                        <span class="skill-badge">C / C++</span>
+                        <span class="skill-badge">FreeRTOS</span>
+                        <span class="skill-badge">Zephyr</span>
+                        <span class="skill-badge">Embedded Linux</span>
+                        <span class="skill-badge">Bare-metal / MCU</span>
+                      </div>
+                    </div>
+
+                    <div class="skill-group">
+                      <span class="skill-group-title">Robotics &amp; Control</span>
+                      <div class="skills-grid">
+                        <span class="skill-badge">ROS / ROS 2</span>
+                        <span class="skill-badge">MPC / Nonlinear Control</span>
+                        <span class="skill-badge">Sensor Fusion</span>
+                        <span class="skill-badge">Kalman Filter</span>
+                        <span class="skill-badge">PX4</span>
+                        <span class="skill-badge">Gazebo</span>
+                        <span class="skill-badge">SITL / HITL</span>
+                      </div>
+                    </div>
+
+                    <div class="skill-group">
+                      <span class="skill-group-title">Software &amp; Tools</span>
+                      <div class="skills-grid">
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">Go</span>
+                        <span class="skill-badge">MATLAB</span>
+                        <span class="skill-badge">gRPC</span>
+                        <span class="skill-badge">Docker / CI-CD</span>
+                        <span class="skill-badge">OpenCV</span>
+                        <span class="skill-badge">PyTorch</span>
+                      </div>
+                    </div>
 
                     <div class="title-box-2 mt-4">
                       <h5 class="title-left">Education</h5>
@@ -381,6 +484,7 @@
           </div>
         </div>
 
+      </div>
     </section>
 
     <!-- ======= Counter Section ======= -->
@@ -630,6 +734,36 @@
       </div>
     </section>
 
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact-mf route" style="background:#f0f5ff;">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="title-box text-center">
+              <h3 class="title-a">Contact</h3>
+              <p class="subtitle-a">Let&rsquo;s talk about robotics &amp; embedded systems roles</p>
+              <div class="line-mf"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center text-center g-4">
+          <div class="col-sm-4 col-md-3">
+            <a href="mailto:leeandy90833@gmail.com" class="pub-card d-block text-decoration-none">
+              <div class="pub-icon"><i class="bi bi-envelope-fill"></i></div>
+              <h5>Email</h5>
+              <p class="mb-0">leeandy90833@gmail.com</p>
+            </a>
+          </div>
+          <div class="col-sm-4 col-md-3">
+            <a href="https://github.com/leeandy0822" target="_blank" class="pub-card d-block text-decoration-none">
+              <div class="pub-icon"><i class="bi bi-github"></i></div>
+              <h5>GitHub</h5>
+              <p class="mb-0">leeandy0822</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
   </main>
 
